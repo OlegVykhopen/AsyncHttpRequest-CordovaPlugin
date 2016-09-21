@@ -8,12 +8,12 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="AsyncHttpRequest">
-                <param name="android-package" value="cordova-plugin-asynchttprequest.AsyncHttpRequest"/>
+                <param name="android-package" value="AsyncHttpRequest"/>
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/AsyncHttpRequest.java"
-                     target-dir="src/cordova-plugin-asynchttprequest/AsyncHttpRequest"/>
+                     target-dir="src/AsyncHttpRequest"/>
         <source-file src="src/android/android-async-http-1.4.6.jar" target-dir="libs" framework="true"/>
     </platform>
 </plugin>

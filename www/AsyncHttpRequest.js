@@ -5,6 +5,7 @@ function loadDataFromUrl(success,error,str) {
     cordova.exec(success, error, "AsyncHttpRequest", "loadDataFromURL", [str]);
 }
 
+window.loadDataFromUrl = loadDataFromUrl;
 module.exports = loadDataFromUrl;
 
 
