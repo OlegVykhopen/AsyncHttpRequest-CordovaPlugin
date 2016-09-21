@@ -1,3 +1,5 @@
+package AsyncHttpRequest;
+
 import android.util.Log;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -44,6 +46,7 @@ public class AsyncHttpRequest extends CordovaPlugin {
                 public void onSuccess(int i, Header[] headers, byte[] bytes) {
                     try {
                         JSONObject localJSONObject = (JSONObject) new JSONTokener(new String(bytes, "UTF-8")).nextValue();
+                        Log.d("Success", localJSONObject.toString());
                         AsyncHttpRequest.this.mCallbackContext.success(localJSONObject);
                     } catch (JSONException localJSONException) {
                         localJSONException.printStackTrace();
@@ -55,7 +58,16 @@ public class AsyncHttpRequest extends CordovaPlugin {
 
                 @Override
                 public void onFailure(int i, org.apache.http.Header[] headers, byte[] bytes, Throwable throwable) {
-
+                    try {
+                        JSONObject localJSONObject = (JSONObject) new JSONTokener(new String(bytes, "UTF-8")).nextValue();
+                        Log.d("Error", localJSONObject.toString());
+                        AsyncHttpRequest.this.mCallbackContext.error(localJSONObject);
+                    } catch (JSONException localJSONException) {
+                        localJSONException.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                 }
 
 
