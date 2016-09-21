@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-asynchttprequest" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AsyncHttpRequest</name>
+    <js-module name="AsyncHttpRequest" src="www/AsyncHttpRequest.js">
+        <clobbers target="cordova.plugins.AsyncHttpRequest"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="AsyncHttpRequest">
+                <param name="android-package" value="cordova-plugin-asynchttprequest.AsyncHttpRequest"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/AsyncHttpRequest.java"
+                     target-dir="src/cordova-plugin-asynchttprequest/AsyncHttpRequest"/>
+    </platform>
+</plugin>
