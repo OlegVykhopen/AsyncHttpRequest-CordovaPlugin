@@ -14,5 +14,6 @@
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/AsyncHttpRequest.java"
                      target-dir="src/cordova-plugin-asynchttprequest/AsyncHttpRequest"/>
+        <source-file src="src/android/android-async-http-1.4.6.jar" target-dir="libs" framework="true"/>
     </platform>
 </plugin>
