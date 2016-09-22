@@ -41,7 +41,7 @@ public class AsyncHttpRequest extends CordovaPlugin {
         if ((this.mRequestUrl != null) && (this.mRequestUrl.length() > 0)) {
             Log.e("LoadDataFromUrl", this.mRequestUrl);
             this.mClient.get(this.mRequestUrl, new AsyncHttpResponseHandler() {
-
+                // https://github.com/loopj/android-async-http/issues/925 - fix for missed headers
                 @Override
                 public void onSuccess(int i, Header[] headers, byte[] bytes) {
                     try {
